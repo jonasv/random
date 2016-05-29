@@ -9,8 +9,8 @@ open(DATA_write, '>>/root/programming/perl/simple_1/data') or die; #open filehan
 
 while (<DATA_read>) { #read file..
 
-	if ($_ =~ m/(\d+)/) { #.. then if there is a diggit
-		print DATA_write $_; # .. then append those lines with digits to the same file
+	if ($_ =~ m/(\d+)/) { #.. then if there is a diggit within the line
+		print DATA_write $_; # .. append the line with digits to the same file
 	}
 }
 print "0\n";
