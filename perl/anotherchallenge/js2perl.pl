@@ -20,6 +20,17 @@ use warnings;
 #			return ascii;
 #		}	
 
+#
+
+sub readnumbers {
+    open(NUMBERS, 'numbers.txt') or die('unable to open numbers file\n');
+    $/ = ' ';
+    foreach(<NUMBERS>) {
+	print "$_ \n";
+    }
+    close(NUMBERS);
+}
+
 my @ascii = '0';
 my $i = '0';
 
@@ -35,8 +46,5 @@ sub process {
 }
 
 process('42','246','181','78');
-
-
-#42 246 181 78
 
 
