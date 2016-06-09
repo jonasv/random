@@ -53,15 +53,52 @@ $/ = ' ';
 open(NUMBERS, 'numbers.txt') or die('unable to open numbers file\n');
 
 $/ = ' ';
-foreach (<NUMBERS>) {
-	chomp;
-	for (1 .. 256) {
-	    $_ +=1;
-	    $_++;
-	    if ($_ == "164") {
-		print $. . "<---current line\n";
-	    }
-	}
+
+
+
+
+
+
+foreach my $line (<NUMBERS>) {
+	chomp $line;
+	print $line;
+}
+
+
+#foreach my $line (<NUMBERS>) {
+#	chomp $line;
+#	for (my $i=0; $i <= 5; $i++) {
+#	print $line . " ";
+#	next;
+#	}
+#	$line += 1;
+#	$line++;
+#	next;
+#	if ($line == "209") {
+#	    exit;
+#	}
+#}
+	#for (1 .. 256) {
+	#   print $line . " ";
+	#   $line += 1;
+	#   $line++;
+	#   next;
+	#}
+	#next;
+#}
+
+#	if ($line == "176") {
+#	    print " $line has been found ";
+#	    exit;
+#	}
+#	print "$var ";
+#	for (1 .. 256) {
+#	    $var +=1;
+#	    print $var;
+#	    if ($_ == "164") {
+#		print $. . "<---current line\n";
+#	    }
+#	}
 #	$_ += 151;
 #	print chr ($_);
 	
@@ -85,8 +122,7 @@ foreach (<NUMBERS>) {
 #		print chr ($_);
 #		$_ +=1;
 #	}		
-		
-}
+#}
 
-print "\n";
+#print "\n";
 	close(NUMBERS);
