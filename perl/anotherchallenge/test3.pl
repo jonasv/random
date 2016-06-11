@@ -32,8 +32,8 @@ my @num = split(" ", $biglist);
        my $x = $_;
 	print  chr(($x) % 256);
 	}
-#           if (chr(($a) % 256) =~ m/[a-z]/i) {
-#               print $a . " ->" . chr(($a + $a) % 256 + 8) . "\n";
-#           }
-#       }
+           if (chr(($a) % 256) =~ m/[a-z]/i) {
+               print $a . " ->" . chr(($a + $a) % 256 + 8) . "\n";
+           }
+       }
 	print "\n";

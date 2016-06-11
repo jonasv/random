@@ -1,4 +1,5 @@
 #!/bin/bash
+#author unknown
 
 set -xv
 HOSTNAME=`hostname --short`
