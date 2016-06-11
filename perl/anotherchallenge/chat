@@ -1,0 +1,43 @@
+ <uid100101> could you please explain what needs to be done in pseudo code in order to extract message which was shown here by tm604 yesterday ?
+[01:31:01] <uid100101> I mean how the logic must look like, I tried countless options, but can't get that output
+[01:31:04] <mauke> the first thing I did was to split the list of numbers into three lists
+[01:31:28] * GumbyPAN CPAN Upload: NanoMsg-Raw-0.07 by BORISZ https://metacpan.org/release/BORISZ/NanoMsg-Raw-0.07
+[01:31:46] <uid100101> cool, then ?
+[01:32:30] <mauke> for each sublist, check which numbers n in the range [0, 255] map all the elements into printable ascii (via chr(($x + $n) % 256))
+[01:32:48] <mauke> and by printable ascii I mean characters in the range [ -~]
+[01:33:40] <mauke> that gave me between 5 and 15 possible values for each of the three sublists IIRC
+[01:33:56] <mauke> it just so happened that the first candidate for each was also the correct solution
+[01:34:25] <uid100101> thanks, I'll try to do the same, but it would be great if you could show me working example
+[01:34:37] <mauke> I didn't write a program
+[01:34:44] <mauke> I just played around in the haskell REPL
+[01:35:13] <mauke> and I'm pretty sure this can be solved with pen and paper alone
+[01:35:26] <jophish__> hmm, I'm getting this error https://gist.github.com/expipiplus1/9e5bdd4737ffadb89ac778b46cd91a20
+[01:35:48] <mauke> unknown URI format?
+[01:35:53] <mauke> what did you pass to ->new?
+[01:35:58] <uid100101> I want to do that in perl, I already improved a lot in perl by just looking for solution over past 48 hours
+[01:35:59] * Joins: zenlot6 (~zenlot@78-62-77-171.static.zebra.lt)
+[01:36:10] <jophish__> return $uriUnauthString if defined $uriUnauth->userinfo; # this is the line it fails on
+[01:36:28] * GumbyPAN CPAN Upload: Image-SVG-Transform-0.03 by COLINK https://metacpan.org/release/COLINK/Image-SVG-Transform-0.03
+[01:37:07] * Quits: zenlot (~zenlot@78-62-77-171.static.zebra.lt) (Ping timeout: 276 seconds)
+[01:37:30] <jophish__> mauke: wouldn't that make it 'undef' if I passed in bad input?
+[01:38:02] <mauke> it's not necessarily bad, just not a http URI
+[01:38:26] <rbern> tm604, hi since last night! I got it. I've found a fresh example of the calculator in perlqt and made a "hello world" in perl/qt! :D checkout my post about it: http://mydmz.herokuapp.com/hello_world_perl_qt
+[01:38:38] <rbern> I think I got it. Ty.
+[01:39:11] <jophish__> mauke: adding a debug pring on the uri input now
+[01:39:34] <jophish__> print*
+[01:39:50] * Quits: spider-mario (~spidermar@178-83-188-253.dynamic.hispeed.ch) (Remote host closed the connection)
+[01:40:37] * Quits: gelignite (~gelignite@x5ce48674.dyn.telefonica.de) (Quit: http://bit.ly/1kso8Ta)
+[01:40:57] * Joins: PeterThoeny (~PeterThoe@twiki/founder/peterthoeny)
+[01:41:10] * Quits: PeterThoeny (~PeterThoe@twiki/founder/peterthoeny) (Client Quit)
+[01:41:10] <tm604> rbern: nice work - perhaps worth submitting to blogs.perl.org and/or reddit.com/r/perl, given that there don't seem to be that many recent Qt4 examples around?
+[01:41:15] * Quits: jesopo (jess@lolnerd.net) (Quit: et nos unum sumus)
+[01:41:57] <pink_mist> aren't there Qt5 bindings yet though?
+[01:42:23] <tm604> might be! if there are, they seem to be well hidden =)
+[01:43:08] <tm604> uid100101: the deciphered text contains an email address, and the domain for that emaill is "gambitresearch.com". you can use this information to determine that the strings 'gbrecc', 'aieaho', and 'mtsr.m' should appear in the three sublists when deciphered correctly. once you have those, put the sublists back together again.
+[01:43:48] <tm604> that's a bit of a cheat, since it's making an assumption about the content, but it does allow easier automation.
+[01:43:50] <jophish__> the string was git://github.com/NixOs/nixpkgs
+[01:43:58] <jophish__> .git
+[01:44:08] <mauke> eval: URI->new("git://github.com/NixOs/nixpkgs.git")
+[01:44:09] <perlbot> mauke: ERROR: Can't locate URI/git.pm:   (null): Too many open files at (eval 541) line 1, <STDIN> line 1.
+[01:44:11] <uid100101> tm604 thanks , let me try to do that
+[01:44:32] <mauke> tm604: or combine them first and search for "gambitresearch" directly :-)
