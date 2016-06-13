@@ -29,14 +29,6 @@ sub encode {
 				$ascii[$i] = ($ascii[$i]+$c)%256;
 			}
 		}
+	return $ascii;
 }
 
-#sub process {
-#       my ($ascii,$a,$b,$c) = @_;
-#       for ($i=0;$i<length($ascii);$i++) {
-#               #print "$ascii $a $b $c \n";
-#               if ($i % '3' == '0') {
-#                       $ascii[$i] = ($ascii[$i]+$a)%256;
-#               }
-#       return $ascii;
-#       }
