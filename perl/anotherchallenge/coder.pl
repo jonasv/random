@@ -15,7 +15,9 @@
 #			}
 #			return ascii;
 #		}
-
+ my $text = "98";
+    print encode($text,$text,$text,$text);
+	
 sub encode {
 	my ($ascii,$a,$b,$c) = @_;
 		for ($i=0;$i<length($ascii);$i++) {
