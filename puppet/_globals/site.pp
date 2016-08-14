@@ -5,7 +5,7 @@ resources { "firewall":
 
 Firewall {
           before => Class['fw::post'],
-                  require => Class['fw::pre'],
+          require => Class['fw::pre'],
 }
 
 class { ['fw::pre', 'fw::post']: }
@@ -19,7 +19,7 @@ node 'puppetnode001.int.corosay.com' {
     }
 
 
-     include httpd
+       include httpd
      # include users1
      # include users2
        include accounts
