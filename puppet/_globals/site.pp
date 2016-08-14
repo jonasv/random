@@ -5,7 +5,7 @@ resources { "firewall":
 
 Firewall {
           before => Class['fw::post'],
-                  require => Class['fw::pre'],
+          require => Class['fw::pre'],
 }
 
 class { ['fw::pre', 'fw::post']: }
