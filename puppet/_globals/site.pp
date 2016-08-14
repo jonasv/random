@@ -19,7 +19,7 @@ node 'puppetnode001.int.corosay.com' {
     }
 
 
-     include httpd
+       include httpd
      # include users1
      # include users2
        include accounts
