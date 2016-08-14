@@ -1,7 +1,7 @@
 class users1 {
-  user { 'iskorptix':
+  user { 'tester':
     ensure => present,
-    home => '/home/iskorptix',
+    home => '/home/tester',
     shell => '/bin/bash',
     managehome => true,
     password => '$1$kUG9eAEa$SRJ0AB0UFWH65NIETCv781',
