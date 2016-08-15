@@ -14,12 +14,13 @@ define accounts::virtual ($ensure,$uid,$realname,$pass,$sshkeytype,$homepath,$sh
     purge_ssh_keys    =>  true,
   }
 
-  # Create a matching group
-  group { $title:
-    gid               => $uid,
-  }
+
+    group { $title:
+	gid		=> $uid,
+    }
 
  if $ensure == 'present' {
+
   # Ensure the home directory exists with the right permissions
   file { "${homepath}/${title}":
     ensure            =>  directory,
