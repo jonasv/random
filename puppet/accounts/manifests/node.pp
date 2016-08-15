@@ -1,3 +1,4 @@
+# --> node definition file, it shouldn't be here
 
 include accounts
 
