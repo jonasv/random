@@ -1,1 +1,1 @@
-#  If you are first tim here, welcome. Simple repo for keeping my tools visible
+#  If you are first time here, welcome. Simple repo for keeping my tools visible
