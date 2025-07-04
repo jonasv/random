@@ -12,27 +12,21 @@ if [ ! -d "$1" ]; then
     exit 1
 fi
 
-# Function to process files
+TMPFILE=$(mktemp)
+
+# Function to process a single file
 process_file() {
     local file="$1"
-    # Check if it's a regular file
     if [ -f "$file" ]; then
-        # Call the C application with the full path of the file
-        ./mini_checksumer "$file"
+        mini_checksumer "$file" >> "$TMPFILE"
     fi
 }
 
-# Function to process directories recursively
-process_directory() {
-    local dir="$1"
-    # Use find to get all files and directories
-    find "$dir" -print0 | while IFS= read -r -d '' item; do
-        if [ -f "$item" ]; then
-            process_file "$item"
-        fi
-    done
-}
+# Use find to process all files recursively
+find "$1" -type f -print0 | while IFS= read -r -d '' file; do
+    process_file "$file"
+done
 
-# Start processing from the provided directory
-process_directory "$1"
-
+# Sort the results and output to stdout
+sort "$TMPFILE"
+rm "$TMPFILE"
